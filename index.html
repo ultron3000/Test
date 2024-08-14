@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HLS Stream Player</title>
+    <title>DASH Stream Player</title>
     <style>
         body {
             margin: 0;
@@ -23,25 +23,16 @@
 <body>
     <video id="video" controls></video>
 
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.0/dist/hls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dashjs@4.1.0/dist/dash.all.min.js"></script>
     <script>
         var video = document.getElementById('video');
         var videoSrc = 'https://kratos.vip/t/index.php/https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/1718685849285item-07item_init.m4i';
 
-        if (Hls.isSupported()) {
-            var hls = new Hls();
-            hls.loadSource(videoSrc);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                video.play();
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = videoSrc;
-            video.addEventListener('loadedmetadata', function() {
-                video.play();
-            });
+        if (dashjs.MediaPlayer.isSupported()) {
+            var player = dashjs.MediaPlayer().create();
+            player.initialize(video, videoSrc, true);
         } else {
-            console.error('HLS is not supported in this browser.');
+            console.error('DASH is not supported in this browser.');
         }
     </script>
 </body>

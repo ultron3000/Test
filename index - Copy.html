@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLS Video Stream</title>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .video-js {
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="800" height="450">
+        <source src="https://aj.bigtimedelivery.net/_v13/8fd3a3a5791d7e675bce65e48785540e561577ae9dcd6bf62386d265022fb7c367ba9229594fcdb1b5e2b8a23eba84255a5063c2b89566525c4544904ee63b3e7bea814c04bf2d75e39b10d6317db17a57dc9ebcc505437da8b37999a2dc26addebb80fe1568da174531c50f8c288a30900b875a5b8c2909645ce6e2dfc0eaa1/1080/index.m3u8" type="application/x-mpegURL">
+        Your browser does not support the video tag.
+    </video>
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+</body>
+</html>
